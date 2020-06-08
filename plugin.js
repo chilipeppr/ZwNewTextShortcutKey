@@ -31,15 +31,19 @@ var myPlugin = {
     bindShortcutKey: function() {
 
         $(document).keydown(this.onShortcutKey.bind(this));
+
+        var btnEl = $('button.conversation-list-panel_newMessage > div');
+        btnEl.prop('title', "New Text (Alt + T)");
+        console.log("New Text Shortcut Key. Added Alt+T to global keydown event. Updated New Text btn with new title tag showing user the shortcut key.");
             
     },
 
     // Detect Alt+H on PC / Option+H on Mac shortcut key 
     onShortcutKey: function(evt) {
 
-        console.log("onShortcutKey. evt.ctrlKey:", evt.ctrlKey, "evt.altKey:", evt.altKey, "evt.which:", evt.which, "evt:", evt);
+        console.log("New Text Btn - onShortcutKey. evt.ctrlKey:", evt.ctrlKey, "evt.altKey:", evt.altKey, "evt.which:", evt.which, "evt:", evt);
 
-        if (evt.altKey && evt.which == 72) {
+        if (evt.altKey && evt.which == 84) {
             console.log("Shortcut key Alt+T hit for New Text");
             var that = this;
             setTimeout(function() {
